@@ -11,6 +11,10 @@
     {
       "path":"/login",
       "proxyUrl":"http://127.0.0.1:3000/login"
+    },
+    {
+      "path":"/product",
+      "proxyUrl":"http://127.0.0.1:3000/product"
     }
   ]
 }
