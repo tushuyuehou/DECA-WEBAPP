@@ -32,4 +32,5 @@ import { RegisterPage } from '../pages/register/register';
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
+
 export class AppModule {}
