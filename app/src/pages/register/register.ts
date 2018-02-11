@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams ,AlertController, ToastController} from 'ionic-angular';
 import { HttpClient } from "@angular/common/http";
 
 /**
@@ -15,7 +15,7 @@ import { HttpClient } from "@angular/common/http";
   templateUrl: 'register.html',
 })
 export class RegisterPage {
-  deca_user = {
+  user = {
     uname:'',
     upwd:'',
     email:'',
@@ -23,18 +23,33 @@ export class RegisterPage {
     gender:'1'
   };
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public httpClient:HttpClient) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public httpClient:HttpClient, public alertCtrl:AlertController,public toastCtrl:ToastController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterPage');
   }
 
-  signUp():void{
+  register():void{
     //console.error('user:'+this.user)
     let url = '/register';
-    this.httpClient.post(url,{deca_user:this.deca_user}).subscribe((res)=>{
-      console.error(res);
+    this.httpClient.post(url,{user:this.user}).subscribe((res)=>{
+      let status = res['status'];
+      if(status === 'exist'){
+        this.alertCtrl.create({
+          title:'Error',
+          subTitle:'用户名已存在',
+          buttons:['OK']
+        }).present();
+      }else if(status === 'err'){
+        this.toastCtrl.create({
+          message:'服务器错误',
+          duration:1000,
+          position:'middle'
+        }).present();
+      }else{
+        this.navCtrl.push('HomePage');
+      }
     }, (error)=>{
       console.error(error);
     })

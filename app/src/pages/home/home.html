@@ -10,13 +10,13 @@
   <ion-list>
     <ion-item>
       <ion-label floating>用户名</ion-label>
-      <ion-input></ion-input>
+      <ion-input [(ngModel)]="user.uname"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label floating>密码</ion-label>
-      <ion-input></ion-input>
+      <ion-input type="password" [(ngModel)]="user.upwd"></ion-input>
     </ion-item>
   </ion-list>
-  <button ion-button block>登录</button>
-  <button [navPush]="registerPage" ion-button block color="secondary">注册</button>
+  <button (tap)="login()" ion-button block>登录</button>
+  <button (tap)="registerPage()" ion-button block color="secondary">注册</button>
 </ion-content>

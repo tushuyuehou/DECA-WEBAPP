@@ -16,27 +16,27 @@
 <ion-content padding>
   <ion-list>
     <ion-item>
-      <ion-label floating>用户名 {{deca_user.uname}}</ion-label>
-      <ion-input [(ngModel)]="deca_user.uname"></ion-input>
+      <ion-label floating>用户名</ion-label>
+      <ion-input [(ngModel)]="user.uname"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label floating>密码</ion-label>
-      <ion-input type="password" [(ngModel)]="deca_user.upwd"></ion-input>
+      <ion-input type="password" [(ngModel)]="user.upwd"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label floating>电子邮箱 {{deca_user.email}}</ion-label>
-      <ion-input [(ngModel)]="deca_user.email"></ion-input>
+      <ion-label floating>电子邮箱</ion-label>
+      <ion-input [(ngModel)]="user.email"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label floating>手机 {{deca_user.phone}}</ion-label>
-      <ion-input [(ngModel)]="deca_user.phone"></ion-input>
+      <ion-label floating>手机</ion-label>
+      <ion-input [(ngModel)]="user.phone"></ion-input>
     </ion-item>
 
     <ion-list-header>性别</ion-list-header>
-    <ion-list radio-group [(ngModel)]="deca_user.gender">
+    <ion-list radio-group [(ngModel)]="user.gender">
       <ion-item>
         <ion-label>男</ion-label>
         <ion-radio checked value="1"></ion-radio>
@@ -47,5 +47,5 @@
       </ion-item>
     </ion-list>
   </ion-list>
-  <button ion-button block color="secondary" (tap)="signUp()">注册</button>
+  <button ion-button block color="secondary" (tap)="register()">注册</button>
 </ion-content>

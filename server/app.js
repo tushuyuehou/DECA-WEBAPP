@@ -40,4 +40,18 @@ app.post('/register',(req,res)=>{
     });
 });
 
+app.post('/login',(req,res)=>{
+    let user = req.body.user;
+    console.log(user);
+    let sql = 'SELECT * FROM deca.deca_user WHERE uname = ? AND upwd = ?';
+    pool.query(sql,[user.uname,user.upwd],(err,results)=>{
+        if(err) throw err;
+        if(results.length === 1){
+            res.send({"status":"ok"});
+        }else{
+            res.send({"status":"err"});
+        }
+    })
+})
+
 app.listen(3000);
