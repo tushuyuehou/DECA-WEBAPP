@@ -1,0 +1,12 @@
+{
+  "name": "ionic2-app-base",
+  "app_id": "",
+  "type": "ionic-angular",
+  "integrations": {},
+  "proxies":[
+    {
+      "path":"/register",
+      "proxyUrl":"http://127.0.0.1:3000/register"
+    }
+  ]
+}

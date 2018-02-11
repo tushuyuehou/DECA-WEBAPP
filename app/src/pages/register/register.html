@@ -1,0 +1,51 @@
+<!--
+  Generated template for the RegisterPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>注册</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label floating>用户名 {{deca_user.uname}}</ion-label>
+      <ion-input [(ngModel)]="deca_user.uname"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>密码</ion-label>
+      <ion-input type="password" [(ngModel)]="deca_user.upwd"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>电子邮箱 {{deca_user.email}}</ion-label>
+      <ion-input [(ngModel)]="deca_user.email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>手机 {{deca_user.phone}}</ion-label>
+      <ion-input [(ngModel)]="deca_user.phone"></ion-input>
+    </ion-item>
+
+    <ion-list-header>性别</ion-list-header>
+    <ion-list radio-group [(ngModel)]="deca_user.gender">
+      <ion-item>
+        <ion-label>男</ion-label>
+        <ion-radio checked value="1"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>女</ion-label>
+        <ion-radio value="0"></ion-radio>
+      </ion-item>
+    </ion-list>
+  </ion-list>
+  <button ion-button block color="secondary" (tap)="signUp()">注册</button>
+</ion-content>

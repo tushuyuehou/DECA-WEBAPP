@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      首页
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label floating>用户名</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>密码</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+  </ion-list>
+  <button ion-button block>登录</button>
+  <button [navPush]="registerPage" ion-button block color="secondary">注册</button>
+</ion-content>
