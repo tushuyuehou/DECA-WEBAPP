@@ -8,6 +8,7 @@ import { IndexPage } from './index';
   ],
   imports: [
     IonicPageModule.forChild(IndexPage),
+
   ],
 })
 export class IndexPageModule {}
