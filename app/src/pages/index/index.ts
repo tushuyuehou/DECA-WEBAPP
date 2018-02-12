@@ -15,6 +15,7 @@ import { HttpClient } from "@angular/common/http";
 })
 export class IndexPage {
   products;
+  page:number = 1;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public httpClient: HttpClient) {
 
@@ -22,7 +23,7 @@ export class IndexPage {
 
   ionViewDidLoad() {
     console.log('IndexPage 视图加载完成');
-    let url = `/products/1`;
+    let url = `/products/${this.page}`;
     this.httpClient.get(url).subscribe(
       res=>{
         this.products = res;
@@ -31,11 +32,12 @@ export class IndexPage {
       })
   }
 
-  loadMoreData(event):void{
-    let url = `/products/2`;
+  loadMoreData(infiniteScrollEvent):void{
+    let url = `/products/${++this.page}`;
     this.httpClient.get(url).subscribe(
       res=>{
-        console.log(res);
+        this.products = this.products.concat(res);
+        infiniteScrollEvent.complete();
       },err=>{
         console.error(err);
       })
