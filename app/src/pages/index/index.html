@@ -14,11 +14,20 @@
 
 
 <ion-content padding>
-  <ion-list>
-    <ion-item *ngFor="let product of products">{{product}}</ion-item>
-  </ion-list>
+  <div *ngFor="let product of products">
+    <div style="width:50%;float:left;">
+      <ion-card>
+        <img src="assets/products/{{product.title}}">
+        <ion-card-content style="background:#ffefd5">
+          <ion-card-title>{{product.title}}</ion-card-title>
+          <p>{{product.details}}</p>
+          <b style="color:#900">￥{{product.price}}</b>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
 
-  <ion-infinite-scroll (ionInfinite)="loadMoreData($event)">
+  <ion-infinite-scroll *ngIf="hasMoreData" (ionInfinite)="loadMoreData($event)">
     <ion-infinite-scroll-content></ion-infinite-scroll-content>
   </ion-infinite-scroll>
 </ion-content>

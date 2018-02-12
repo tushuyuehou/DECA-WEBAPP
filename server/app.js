@@ -57,7 +57,7 @@ app.post('/login',(req,res)=>{
 app.get('/products/:page',(req,res)=>{
     let page = req.params.page;
     const pageSize = 20;
-    let sql = `SELECT * FROM deca.product LIMIT ${pageSize} OFFSET ?`;
+    let sql = `SELECT * FROM deca.deca_laptop LIMIT ${pageSize} OFFSET ?`;
 
     pool.query(sql,[pageSize * (page-1)],(err,results)=>{
         if(err) throw err;

@@ -16,6 +16,7 @@ import { HttpClient } from "@angular/common/http";
 export class IndexPage {
   products;
   page:number = 1;
+  hasMoreData:boolean = true;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public httpClient: HttpClient) {
 
@@ -36,7 +37,11 @@ export class IndexPage {
     let url = `/products/${++this.page}`;
     this.httpClient.get(url).subscribe(
       res=>{
-        this.products = this.products.concat(res);
+        if(res['length'] === 0){
+          this.hasMoreData = false;
+        }else{
+          this.products = this.products.concat(res);
+        }
         infiniteScrollEvent.complete();
       },err=>{
         console.error(err);
