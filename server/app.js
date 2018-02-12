@@ -57,11 +57,11 @@ app.post('/login',(req,res)=>{
 app.get('/products/:page',(req,res)=>{
     let page = req.params.page;
     const pageSize = 20;
-    let sql = 'SELECT title FROM deca.product LIMIT ? OFFSET ?';
+    let sql = `SELECT title FROM deca.product LIMIT ${pageSize} OFFSET ?`;
 
-    pool.query(sql,[pageSize,(page-1)*20],(err,results)=>{
+    pool.query(sql,[(page-1)*pageSize],(err,results)=>{
         if(err) throw err;
-        req.send(results);
+        res.send(results);
     })
 })
 
