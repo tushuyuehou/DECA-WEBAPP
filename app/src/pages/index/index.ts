@@ -22,7 +22,7 @@ export class IndexPage {
 
   ionViewDidLoad() {
     console.log('IndexPage 视图加载完成');
-    let url = '/products/1';
+    let url = `/products/1`;
     this.httpClient.get(url).subscribe(
       res=>{
         this.products = res;
@@ -31,7 +31,13 @@ export class IndexPage {
       })
   }
 
-  doInfinite(event):void{
-
+  loadMoreData(event):void{
+    let url = `/products/2`;
+    this.httpClient.get(url).subscribe(
+      res=>{
+        console.log(res);
+      },err=>{
+        console.error(err);
+      })
   }
 }
