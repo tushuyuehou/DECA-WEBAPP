@@ -15,7 +15,7 @@
 
 <ion-content padding>
   <div *ngFor="let product of products">
-    <div style="width:50%;float:left;">
+    <div style="width:50%;float:left;" (tap)="productPage(product.lid)">
       <ion-card>
         <img src="assets/products/{{product.title}}">
         <ion-card-content style="background:#ffefd5">

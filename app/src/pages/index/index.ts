@@ -47,4 +47,9 @@ export class IndexPage {
         console.error(err);
       })
   }
+
+  productPage(productId):void{
+    console.log(productId);
+    this.navCtrl.push('ProductPage',{productId:productId});
+  }
 }
